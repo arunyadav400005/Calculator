@@ -1,0 +1,21 @@
+let display = document.getElementById('inputBox');
+let buttons = document.querySelectorAll('button');
+let btnArr = Array.from(buttons);
+let string = '';
+btnArr.forEach((btn) => {
+    btn.addEventListener('click',(e) => {
+        if(e.target.innerHTML == 'DEL'){
+            string = string.substring(0,string.length-1);
+            display.value = string;
+        }else if(e.target.innerHTML == 'AC'){
+            display.value = '';
+        }else if(e.target.innerHTML == '='){
+            string = eval(string);
+            display.value = string;
+        }else{
+            string += e.target.innerHTML;
+            display.value = string;
+        }
+        
+    });
+})
